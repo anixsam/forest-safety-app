@@ -1,0 +1,19 @@
+.time-stamp {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-view {
+    background-color: rgb(86, 86, 86);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}

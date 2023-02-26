@@ -5,5 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  constructor() { }
+  constructor() {}
+
+  public sendImage(body : FormData) {
+    
+  }
 }

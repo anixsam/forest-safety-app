@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 
 @Component({
   selector: 'app-webcam',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebcamComponent implements OnInit {
 
-  constructor() { }
+  public screenHeight : number;
+  public screenWidth : number;
+
+  public videoOptions: MediaTrackConstraints = {
+    width: { ideal: 2160   },
+    height: { ideal: 1080 }
+  };
+
+  constructor() {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+   }
 
   ngOnInit(): void {
+    WebcamUtil.getAvailableVideoInputs()
+    .then((mediaDevices: MediaDeviceInfo[]) => {
+    }).catch(error => {
+      console.error(error);
+    })
   }
 
 }
