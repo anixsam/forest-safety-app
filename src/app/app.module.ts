@@ -6,9 +6,11 @@ import { MainComponent } from './components/main/main.component';
 import { WebcamComponent } from './components/webcam/webcam.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 import { WebcamModule } from 'ngx-webcam';
 import { AlertComponent } from './components/alert/alert.component';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog'; 
+import {MatDialog, MatDialogConfig, MatDialogModule} from '@angular/material/dialog'; 
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,10 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatButtonModule,
     WebcamModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
-  providers: [MatDialog],
+  providers: [MatDialog,MatDialogConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
