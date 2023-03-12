@@ -1,10 +1,14 @@
 <div>
     <span>
-        
-        <span class="dialog-title">
-            <mat-icon class="icon" mat-dialog-icon>warning</mat-icon>
-            <h1 mat-dialog-title color="warn">{{title}}</h1>
-        </span>
+        <div class="dialog-header">
+            <span class="dialog-title">
+                <mat-icon class="icon" mat-dialog-icon>warning</mat-icon>
+                <h1 mat-dialog-title color="warn">{{title}}</h1>
+            </span>
+            <button mat-icon-button mat-dialog-close class="close-button">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
         <div mat-dialog-content class="dialog-content">
             <p>{{message}}</p>
         </div>

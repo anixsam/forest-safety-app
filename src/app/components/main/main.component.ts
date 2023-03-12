@@ -51,6 +51,10 @@ export class MainComponent implements OnInit {
       type : type,
       data : data
     }})
+
+    this.dialogContainer.afterClosed().subscribe(() => {
+      this.dialogContainer = undefined;
+    });
   }
 
   private playAudio() {

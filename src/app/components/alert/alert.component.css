@@ -14,3 +14,13 @@
 .dialog-content {
     font-size: 20px;
 }
+
+.dialog-header {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.close-button {
+    margin-right: -10px;
+    margin-top: -10px;
+}
