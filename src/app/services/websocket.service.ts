@@ -9,14 +9,14 @@ export class WebsocketService {
 
   private socket: WebSocketSubject<any> | undefined;
   private subscriptions : Subscription = new Subscription();
-  
-  constructor() 
+
+  constructor()
   {}
 
   public alertTrigger = new BehaviorSubject({});
 
   private handleMessage(message : any) {
-    switch(message.type) 
+    switch(message.type)
     {
       case "fire" :
         this.triggerAlert("fire", message.data);
@@ -28,13 +28,17 @@ export class WebsocketService {
   }
 
   public connect() {
+    let oldMessage = "";
     console.log("Connecting to websocket");
-    this.socket = new WebSocketSubject('ws://localhost:9999');
-
+    this.socket = new WebSocketSubject('ws://localhost:8080');
     this.subscriptions.add(this.socket.subscribe(
-      (message) => 
+      (message) =>
       {
-        this.handleMessage(message)
+        if (JSON.stringify(message) !== JSON.stringify(oldMessage)) {
+          console.log(message);
+          oldMessage = message;
+          this.handleMessage(message)
+        }
       }
     ));
   }
